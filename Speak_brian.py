@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import warnings
 from time import sleep
 import pathlib
@@ -21,7 +22,7 @@ try:
     chrome_opt.add_argument("--use-fake-device-for-media-stream")
     user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36'
     chrome_opt.add_argument(f'user-agent={user_agent}')
-    driver_path = "your chrome driver path"
+    driver_path = "ChromeDriverManager().install()"
     service = Service(driver_path)
     browser = webdriver.Chrome(service=service, options=chrome_opt)
     browser.implicitly_wait(10)
